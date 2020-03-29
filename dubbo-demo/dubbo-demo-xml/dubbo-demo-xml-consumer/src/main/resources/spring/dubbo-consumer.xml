@@ -29,4 +29,7 @@
     local regular interface -->
     <dubbo:reference id="demoService" check="false" interface="org.apache.dubbo.demo.DemoService" mock="return null"/>
 
+    <!--
+    <dubbo:reference id="beanName" check="false（这里代表是否启动检查)" interface="接口的完全限定类名"/>
+    -->
 </beans>

@@ -27,11 +27,17 @@
     <dubbo:registry address="zookeeper://127.0.0.1:2181" />
 
     <!-- use dubbo protocol to export service on port 20880 -->
-<!--    <dubbo:protocol name="dubbo" port="20882"/>-->
+    //实现provider集群
+<!--    <dubbo:protocol name="dubbo" port="20880"/>-->
     <dubbo:protocol name="dubbo" port="20881"/>
 
     <!-- service implementation, as same as regular local bean -->
     <bean id="demoService" class="org.apache.dubbo.demo.provider.DemoServiceImpl"/>
+
+    <!--
+    <bean id="beanName" class="实现类的完全限定类名"/>
+    <dubbo:service interface="实现的接口（在api包下)" ref="beanName（用的是bean标签的id)"/>
+     -->
 
     <!-- declare the service interface to be exported -->
     <dubbo:service interface="org.apache.dubbo.demo.DemoService" ref="demoService" loadbalance="roundrobin"/>
